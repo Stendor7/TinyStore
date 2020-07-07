@@ -35,7 +35,7 @@ public class ProductListViewModel extends AndroidViewModel {
     public void setFakeData(){
         for(int i =0; i<10; i++)
         {
-            Product temp = new Product("Producto"+(i+1), 2500.00+(i+1), "PC Asus 17" + (i+1));
+            Product temp = new Product("Producto"+(i+1), 2500.00+(i+1), "https://i.imgur.com/qpr5LR2.jpg", "PC Asus 17" + (i+1));
             productRepository.insert(temp);
         }
     }

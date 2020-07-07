@@ -9,7 +9,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import co.edu.unab.mgads.tiendapp.databinding.ActivityProductDetailBinding;
 import co.edu.unab.mgads.tiendapp.model.Product;
@@ -24,6 +28,7 @@ public class ProductDetailActivity extends AppCompatActivity  {
     private ClickHandlers clickHandlers;
     private Product myProduct;
     private ProductDetailViewModel productDetailViewModel;
+    private String imageUrl;
 
 
     @Override
@@ -42,6 +47,16 @@ public class ProductDetailActivity extends AppCompatActivity  {
                     myProduct = product;
                     mainBinding.setTitle(getString(R.string.detalle_del_producto, product.getName()));
                     mainBinding.setProduct(product);
+                    imageUrl = product.getImage();
+
+                    ImageView imageView = findViewById(R.id.iv_image);
+                    Glide.with(ProductDetailActivity.this)
+                            .load(imageUrl)
+                            .placeholder(R.drawable.progress_circle)
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .into(imageView);
+
+                    Log.d("imagen", "url: "+ imageUrl);
                 }
                 }
 
@@ -58,7 +73,7 @@ public class ProductDetailActivity extends AppCompatActivity  {
 
 
 
-        Log.d("lifeCycle", "Method create");
+
     }
 
     @Override
@@ -127,6 +142,6 @@ public class ProductDetailActivity extends AppCompatActivity  {
     }
 
     public void getProduct(){
-        myProduct = new Product("PC", 1500.00, "PC ASUS i9");
+        myProduct = new Product("PC", 1500.00, "https://www.publicdomainpictures.net/pictures/90000/nahled/camera-icon.jpg" , "product Description");
     }
 }

@@ -16,7 +16,7 @@ public abstract class AppDataBase extends RoomDatabase {
             instance = Room.databaseBuilder(
                     context,
                     AppDataBase.class,
-                    "tiendapp.db"
+                    "tinyStore.db"
             ).allowMainThreadQueries().build();
         }
         return instance;
