@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import android.view.View;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.databinding.ActivityProductFormBinding;
-import co.edu.unab.mgads.tiendapp.model.Product;
-import co.edu.unab.mgads.tiendapp.viewmodel.ProductFormViewModel;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ActivityProductFormBinding;
+import co.edu.unab.mgads.tinystore.model.Product;
+import co.edu.unab.mgads.tinystore.viewmodel.ProductFormViewModel;
 
 public class ProductFormActivity extends AppCompatActivity {
 

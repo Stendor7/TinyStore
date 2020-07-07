@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.databinding.ProductItemBinding;
-import co.edu.unab.mgads.tiendapp.model.Product;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ProductItemBinding;
+import co.edu.unab.mgads.tinystore.model.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 

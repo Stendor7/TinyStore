@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp;
+package co.edu.unab.mgads.tinystore;
 
 import org.junit.Test;
 

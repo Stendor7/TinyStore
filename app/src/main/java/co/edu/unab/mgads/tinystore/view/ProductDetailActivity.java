@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -15,12 +15,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import co.edu.unab.mgads.tiendapp.databinding.ActivityProductDetailBinding;
-import co.edu.unab.mgads.tiendapp.model.Product;
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.viewmodel.ProductDetailViewModel;
-import co.edu.unab.mgads.tiendapp.viewmodel.ProductListViewModel;
-//import co.edu.unab.mgads.tiendapp.databinding.ActivityProductDetailBindingBinding;
+import co.edu.unab.mgads.tinystore.databinding.ActivityProductDetailBinding;
+import co.edu.unab.mgads.tinystore.model.Product;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.viewmodel.ProductDetailViewModel;
+//import co.edu.unab.mgads.tinystore.databinding.ActivityProductDetailBindingBinding;
 
 public class ProductDetailActivity extends AppCompatActivity  {
 
@@ -117,7 +116,7 @@ public class ProductDetailActivity extends AppCompatActivity  {
     }
 
 
-    public class ClickHandlers extends ProductDetailActivity {
+    public class ClickHandlers {
 
         Context context;
 

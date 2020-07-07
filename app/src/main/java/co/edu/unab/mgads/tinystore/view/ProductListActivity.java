@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -17,10 +17,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.databinding.ActivityProductListBinding;
-import co.edu.unab.mgads.tiendapp.model.Product;
-import co.edu.unab.mgads.tiendapp.viewmodel.ProductListViewModel;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ActivityProductListBinding;
+import co.edu.unab.mgads.tinystore.model.Product;
+import co.edu.unab.mgads.tinystore.viewmodel.ProductListViewModel;
 
 public class ProductListActivity extends AppCompatActivity {
 

@@ -6,12 +6,12 @@
     <data>
         <variable
             name="clickHandlers"
-            type="co.edu.unab.mgads.tiendapp.view.ProductListActivity.ClickHandlers" />
+            type="co.edu.unab.mgads.tinystore.view.ProductListActivity.ClickHandlers" />
     </data>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ProductListActivity">
+    tools:context="co.edu.unab.mgads.tinystore.view.ProductListActivity">
 
 <!--    <Button-->
 <!--        android:id="@+id/btn_new"-->

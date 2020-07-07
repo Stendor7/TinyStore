@@ -5,12 +5,12 @@
     <data>
         <variable
             name="clickHandlers"
-            type="co.edu.unab.mgads.tiendapp.view.RegisterUserActivity.ClickHandlers" />
+            type="co.edu.unab.mgads.tinystore.view.RegisterUserActivity.ClickHandlers" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.RegisterUserActivity">
+        tools:context="co.edu.unab.mgads.tinystore.view.RegisterUserActivity">
 
         <TextView
             android:id="@+id/tv_title"

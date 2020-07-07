@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.databinding.ActivityRegisterUserBinding;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ActivityRegisterUserBinding;
 
 public class RegisterUserActivity extends AppCompatActivity {
 

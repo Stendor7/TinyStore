@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.databinding.ActivityHomeBinding;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ActivityHomeBinding;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public class ClickHandlers{
+    public class ClickHandlers  {
         Context context;
 
         public ClickHandlers(Context context) {

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="product"
-            type="co.edu.unab.mgads.tiendapp.model.Product" />
+            type="co.edu.unab.mgads.tinystore.model.Product" />
     </data>
 
     <androidx.cardview.widget.CardView

@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.view;
+package co.edu.unab.mgads.tinystore.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,10 +9,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
-import co.edu.unab.mgads.tiendapp.R;
-import co.edu.unab.mgads.tiendapp.model.User;
-import co.edu.unab.mgads.tiendapp.viewmodel.UserInfoViewModel;
-import co.edu.unab.mgads.tiendapp.databinding.ActivityUserInfoBinding;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.model.User;
+import co.edu.unab.mgads.tinystore.viewmodel.UserInfoViewModel;
+import co.edu.unab.mgads.tinystore.databinding.ActivityUserInfoBinding;
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -49,7 +49,7 @@ viewModel.getUser().observe(UserInfoActivity.this, new Observer<User>() {
         userInfoBinding.getViewModel().setUser();
     }
 
-    public class ClickHandlers{
+    public class ClickHandlers {
 
         Context context;
 

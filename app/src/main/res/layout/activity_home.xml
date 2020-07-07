@@ -5,13 +5,13 @@
  <data>
      <variable
          name="clickHandlers"
-         type="co.edu.unab.mgads.tiendapp.view.HomeActivity.ClickHandlers" />
+         type="co.edu.unab.mgads.tinystore.view.HomeActivity.ClickHandlers" />
  </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.HomeActivity">
+        tools:context="co.edu.unab.mgads.tinystore.view.HomeActivity">
 
         <Button
             android:id="@+id/bt_register"

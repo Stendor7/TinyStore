@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.viewmodel;
+package co.edu.unab.mgads.tinystore.viewmodel;
 
 import android.app.Application;
 
@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import co.edu.unab.mgads.tiendapp.model.User;
+import co.edu.unab.mgads.tinystore.model.User;
 
 public class UserInfoViewModel extends AndroidViewModel {
 

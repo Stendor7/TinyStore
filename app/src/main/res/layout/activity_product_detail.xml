@@ -9,17 +9,17 @@
             type="String" />
         <variable
             name="clickHandlers"
-            type="co.edu.unab.mgads.tiendapp.view.ProductDetailActivity.ClickHandlers" />
+            type="co.edu.unab.mgads.tinystore.view.ProductDetailActivity.ClickHandlers" />
 
         <variable
             name="product"
-            type="co.edu.unab.mgads.tiendapp.model.Product" />
+            type="co.edu.unab.mgads.tinystore.model.Product" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ProductDetailActivity">
+    tools:context="co.edu.unab.mgads.tinystore.view.ProductDetailActivity">
 
     <TextView
         android:id="@+id/tv_title"

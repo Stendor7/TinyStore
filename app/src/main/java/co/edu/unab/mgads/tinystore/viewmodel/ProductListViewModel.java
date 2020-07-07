@@ -1,18 +1,15 @@
-package co.edu.unab.mgads.tiendapp.viewmodel;
+package co.edu.unab.mgads.tinystore.viewmodel;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
-import co.edu.unab.mgads.tiendapp.model.Product;
-import co.edu.unab.mgads.tiendapp.model.ProductRepository;
+import co.edu.unab.mgads.tinystore.model.Product;
+import co.edu.unab.mgads.tinystore.model.ProductRepository;
 
 public class ProductListViewModel extends AndroidViewModel {
 

@@ -6,13 +6,14 @@
     <data>
         <variable
             name="clickHandlers"
-            type="co.edu.unab.mgads.tiendapp.view.UserInfoActivity.ClickHandlers" />
+            type="co.edu.unab.mgads.tinystore.view.UserInfoActivity.ClickHandlers" />
+
         <variable
             name="user"
-            type="co.edu.unab.mgads.tiendapp.model.User" />
+            type="co.edu.unab.mgads.tinystore.model.User" />
         <variable
             name="viewModel"
-            type="co.edu.unab.mgads.tiendapp.viewmodel.UserInfoViewModel" />
+            type="co.edu.unab.mgads.tinystore.viewmodel.UserInfoViewModel" />
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.UserInfoActivity">
+        tools:context="co.edu.unab.mgads.tinystore.view.UserInfoActivity">
 
 
         <TextView
@@ -132,7 +133,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{clickHandlers::backClickButton}"/>
+            android:onClick="@{clickHandlers:: backClickButton"/>
 
 
 

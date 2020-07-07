@@ -5,13 +5,13 @@
     <data>
 <variable
     name="product"
-    type="co.edu.unab.mgads.tiendapp.model.Product" />
+    type="co.edu.unab.mgads.tinystore.model.Product" />
 
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ProductFormActivity">
+    tools:context="co.edu.unab.mgads.tinystore.view.ProductFormActivity">
 
 
 

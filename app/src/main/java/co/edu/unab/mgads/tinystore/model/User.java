@@ -1,4 +1,4 @@
-package co.edu.unab.mgads.tiendapp.model;
+package co.edu.unab.mgads.tinystore.model;
 
 import android.widget.ImageView;
 
