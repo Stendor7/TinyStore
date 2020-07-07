@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TinyStore</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="ingresar_nombre_producto">Ingresar nombre producto</string>
+    <string name="detalle_del_producto">Detalle del Producto: %s</string>
+    <string name="nuevo_producto">Nuevo Producto</string>
+    <string name="label_nombre_producto">Nombre Producto</string>
+    <string name="tv_label_price">Precio</string>
+    <string name="description">Descripcion</string>
+    <string name="back">Regresar</string>
+    <string name="nombre">Nombre</string>
+    <string name="email">Email</string>
+    <string name="photo_url">Photo Url</string>
+    <string name="register">Registrarse</string>
+    <string name="password">Clave</string>
+    <string name="ej_ejemplo_correo">Ej: ejemplo@correo.com</string>
+    <string name="ej_john_doe">Ej: John Doe</string>
+    <string name="products">Productos</string>
+    <string name="document">Documento</string>
+    <string name="create_product">Crear Producto</string>
+    <string name="product_price">Precio del producto</string>
+    <string name="save">Guardar</string>
+</resources>

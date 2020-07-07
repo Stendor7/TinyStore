@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandlers"
+            type="co.edu.unab.mgads.tiendapp.view.UserInfoActivity.ClickHandlers" />
+        <variable
+            name="user"
+            type="co.edu.unab.mgads.tiendapp.model.User" />
+        <variable
+            name="viewModel"
+            type="co.edu.unab.mgads.tiendapp.viewmodel.UserInfoViewModel" />
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.UserInfoActivity">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            />
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:srcCompat="@tools:sample/avatars"
+            bind:urlPhoto="@{user.urlPhoto}"/>
+
+        <TextView
+            android:id="@+id/tv_label_document"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/document"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/iv_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <TextView
+            android:id="@+id/tv_document"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_document"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="20dp"
+            android:text="@{user.document}"
+            />
+        <View
+            android:id="@+id/ln_document"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#e5e5e5"
+            app:layout_constraintTop_toBottomOf="@id/tv_document"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="25dp"/>
+        <TextView
+            android:id="@+id/tv_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_document"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_email"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="20dp"
+            android:text="@{user.email}"
+            />
+        <View
+            android:id="@+id/ln_name"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#e5e5e5"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="25dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actualizar Uusario"
+            android:layout_marginTop="30dp"
+            android:onClick="updateUser"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ln_name"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorTextPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{clickHandlers::backClickButton}"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+</layout>

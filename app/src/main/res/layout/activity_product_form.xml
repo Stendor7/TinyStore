@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+<variable
+    name="product"
+    type="co.edu.unab.mgads.tiendapp.model.Product" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProductFormActivity">
+
+
+
+    <TextView
+        android:id="@+id/tv_crate_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_product"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"/>
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/tv_crate_product"
+        tools:srcCompat="@tools:sample/avatars"
+       />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/ingresar_nombre_producto"
+        app:layout_constraintTop_toBottomOf="@id/iv_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@={product.name}"
+        />
+    <EditText
+        android:id="@+id/et_price"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/product_price"
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@{Double.toString(product.price)}"/>
+
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/description"
+        app:layout_constraintTop_toBottomOf="@id/et_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@={product.description}"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:text="@string/save"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_round_background"
+        android:textColor="@color/colorTextPrimary"
+        app:layout_constraintTop_toBottomOf="@id/et_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="insertNewProduct"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
