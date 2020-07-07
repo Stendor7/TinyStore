@@ -8,7 +8,7 @@
     type="co.edu.unab.mgads.tinystore.model.Product" />
 
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="co.edu.unab.mgads.tinystore.view.ProductFormActivity">
@@ -23,29 +23,53 @@
         android:layout_marginTop="20dp"
         android:textSize="25dp"
         android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+       android:layout_alignParentTop="true"
         android:textAlignment="center"/>
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/tv_crate_product"
+        android:layout_below="@id/tv_crate_product"
+        android:layout_centerHorizontal="true"
         tools:srcCompat="@tools:sample/avatars"
        />
+<LinearLayout
+    android:id="@+id/ll_group"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/iv_image"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bt_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/white"
+        android:clickable="true"
+android:layout_marginLeft="5dp"
+        android:layout_below="@id/iv_image"
+        app:srcCompat="@drawable/ic_image" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bt_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/white"
+        android:clickable="true"
+android:layout_marginLeft="5dp"
+        android:layout_below="@id/iv_image"
+        app:srcCompat="@drawable/ic_camera" />
+</LinearLayout>
+
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/ingresar_nombre_producto"
-        app:layout_constraintTop_toBottomOf="@id/iv_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_below="@id/ll_group"
+        android:layout_centerHorizontal="true"
         android:text="@={product.name}"
         />
     <EditText
@@ -53,9 +77,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/product_price"
-        app:layout_constraintTop_toBottomOf="@id/et_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_below="@id/et_name"
+        android:layout_centerHorizontal="true"
         android:text="@{Double.toString(product.price)}"/>
 
     <EditText
@@ -63,9 +86,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/description"
-        app:layout_constraintTop_toBottomOf="@id/et_price"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_below="@id/et_price"
+        android:layout_centerHorizontal="true"
         android:text="@={product.description}"/>
     <Button
         android:layout_width="wrap_content"
@@ -76,10 +98,11 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_round_background"
         android:textColor="@color/colorTextPrimary"
-        app:layout_constraintTop_toBottomOf="@id/et_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_below="@id/et_description"
+        android:layout_centerHorizontal="true"
         android:onClick="insertNewProduct"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
 </layout>
