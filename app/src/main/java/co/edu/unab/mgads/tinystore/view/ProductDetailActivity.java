@@ -51,8 +51,8 @@ public class ProductDetailActivity extends AppCompatActivity  {
                     ImageView imageView = findViewById(R.id.iv_image);
                     Glide.with(ProductDetailActivity.this)
                             .load(imageUrl)
-                            .placeholder(R.drawable.progress_circle)
-                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                            .placeholder(R.drawable.progress_circle)
+//                            .diskCacheStrategy(DiskCacheStrategy.NONE)
                             .into(imageView);
 
                     Log.d("imagen", "url: "+ imageUrl);
@@ -73,46 +73,6 @@ public class ProductDetailActivity extends AppCompatActivity  {
 
 
 
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("lifeCycle", "Method restart");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("lifeCycle", "Method start");
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("lifeCycle", "Method resume");
-
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("lifeCycle", "Method Pause");
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("lifeCycle", "Method Stop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("lifeCycle", "Method Destroy");
     }
 
 
