@@ -8,101 +8,147 @@
     type="co.edu.unab.mgads.tinystore.model.Product" />
 
     </data>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="co.edu.unab.mgads.tinystore.view.ProductFormActivity">
-
-
-
-    <TextView
-        android:id="@+id/tv_crate_product"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_product"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"
-        android:textColor="@color/colorPrimary"
-       android:layout_alignParentTop="true"
-        android:textAlignment="center"/>
-    <ImageView
-        android:id="@+id/iv_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/tv_crate_product"
-        android:layout_centerHorizontal="true"
-        tools:srcCompat="@tools:sample/avatars"
-       />
-<LinearLayout
-    android:id="@+id/ll_group"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/iv_image"
-    android:layout_marginTop="10dp"
-    android:layout_centerHorizontal="true">
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/bt_gallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tint="@android:color/white"
-        android:clickable="true"
-android:layout_marginLeft="5dp"
-        android:layout_below="@id/iv_image"
-        app:srcCompat="@drawable/ic_image" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/bt_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tint="@android:color/white"
-        android:clickable="true"
-android:layout_marginLeft="5dp"
-        android:layout_below="@id/iv_image"
-        app:srcCompat="@drawable/ic_camera" />
-</LinearLayout>
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="co.edu.unab.mgads.tinystore.view.ProductFormActivity">
 
 
-    <EditText
-        android:id="@+id/et_name"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/ingresar_nombre_producto"
-        android:layout_below="@id/ll_group"
-        android:layout_centerHorizontal="true"
-        android:text="@={product.name}"
-        />
-    <EditText
-        android:id="@+id/et_price"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/product_price"
-        android:layout_below="@id/et_name"
-        android:layout_centerHorizontal="true"
-        android:text="@{Double.toString(product.price)}"/>
 
-    <EditText
-        android:id="@+id/et_description"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/description"
-        android:layout_below="@id/et_price"
-        android:layout_centerHorizontal="true"
-        android:text="@={product.description}"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="25dp"
-        android:paddingEnd="25dp"
-        android:text="@string/save"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/btn_round_background"
-        android:textColor="@color/colorTextPrimary"
-        android:layout_below="@id/et_description"
-        android:layout_centerHorizontal="true"
-        android:onClick="insertNewProduct"
-        />
+            <TextView
+                android:id="@+id/tv_crate_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_product"
+                android:layout_marginTop="20dp"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentTop="true"
+                android:textAlignment="center"
+                android:gravity="center"/>
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/tv_crate_product"
+                android:layout_centerHorizontal="true"
+                tools:srcCompat="@tools:sample/avatars"
+                />
+            <LinearLayout
+                android:id="@+id/ll_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_image"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/bt_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@android:color/white"
+                    android:clickable="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@id/iv_image"
+                    app:srcCompat="@drawable/ic_image" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/bt_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@android:color/white"
+                    android:clickable="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@id/iv_image"
+                    app:srcCompat="@drawable/ic_camera" />
+            </LinearLayout>
 
 
-</RelativeLayout>
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/ingresar_nombre_producto"
+                android:layout_below="@id/ll_group"
+                android:layout_centerHorizontal="true"
+                android:text="@={product.name}"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_barcode_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_name"
+                android:layout_centerHorizontal="true">
+
+                <EditText
+                    android:id="@+id/et_bar_code"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_name"
+                    android:hint="@string/product_barcode_number"
+                    android:text="@={product.name}"
+
+                    />
+
+                <Button
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/et_name"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@id/et_bar_code"
+                    android:backgroundTint="@color/colorAccent"
+                    android:drawableLeft="@drawable/button_barcode"
+                    android:drawableTint="@android:color/white"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextPrimary"
+                    android:onClick="scanBarcodeButton"/>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/et_price"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/product_price"
+                android:layout_below="@id/ll_barcode_group"
+                android:layout_centerHorizontal="true"
+                android:text="@{Double.toString(product.price)}"/>
+
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/description"
+                android:layout_below="@id/et_price"
+                android:layout_centerHorizontal="true"
+                android:text="@={product.description}"/>
+            <Button
+                android:id="@+id/bt_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="@string/save"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_round_background"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_below="@id/et_description"
+                android:layout_centerHorizontal="true"
+                android:onClick="insertNewProduct" />
+
+            <TextView
+                android:id="@+id/tv_barcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bt_save"
+                android:text="aqui va la info dle codigo"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
 </layout>

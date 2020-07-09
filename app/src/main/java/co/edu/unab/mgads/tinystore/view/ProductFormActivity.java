@@ -2,25 +2,32 @@ package co.edu.unab.mgads.tinystore.view;
 
         import androidx.annotation.Nullable;
         import androidx.appcompat.app.AppCompatActivity;
+        import androidx.core.app.ActivityCompat;
         import androidx.core.content.FileProvider;
         import androidx.databinding.DataBindingUtil;
         import androidx.lifecycle.ViewModelProvider;
 
+        import android.Manifest;
         import android.content.Intent;
+        import android.content.pm.PackageManager;
         import android.graphics.Bitmap;
         import android.graphics.drawable.BitmapDrawable;
         import android.net.Uri;
         import android.os.Bundle;
         import android.os.Environment;
         import android.provider.MediaStore;
+        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
+        import android.widget.EditText;
         import android.widget.ImageView;
         import android.widget.TextView;
         import android.widget.Toast;
 
         import com.bumptech.glide.Glide;
         import com.google.android.material.floatingactionbutton.FloatingActionButton;
+        import com.google.zxing.integration.android.IntentIntegrator;
+        import com.google.zxing.integration.android.IntentResult;
 
         import java.io.BufferedInputStream;
         import java.io.BufferedOutputStream;
@@ -42,6 +49,8 @@ package co.edu.unab.mgads.tinystore.view;
 public class ProductFormActivity extends AppCompatActivity {
 
     FloatingActionButton btn_load, btn_take;
+    EditText et_barCode;
+    TextView textView;
     String imagePath;
     Boolean selectedGallery = true;
 
@@ -66,6 +75,10 @@ public class ProductFormActivity extends AppCompatActivity {
 
         btn_load = findViewById(R.id.bt_gallery);
         btn_take = findViewById(R.id.bt_camera);
+        et_barCode = findViewById(R.id.et_bar_code);
+        textView = findViewById(R.id.tv_barcode);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA} , PackageManager.PERMISSION_GRANTED);
 
         //camera
         btn_take.setOnClickListener(new View.OnClickListener() {
@@ -105,25 +118,34 @@ public class ProductFormActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d("lifeCycle", "ingreso result"  );
         ImageView iv_photo = findViewById(R.id.iv_image);
+
         //takes photo
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
             Glide.with(this).load(imagePath).into(iv_photo);
             imagePath = imagePath;
         }
-        //from gallery
+
+       //from gallery
         if (requestCode == SELECT_A_PHOTO && resultCode == RESULT_OK) {
             Uri selectPhoto = data.getData();
-
             Glide.with(this).load(selectPhoto).into(iv_photo);
+        }
 
+        //scan barcode
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        Log.d("lifeCycle", "ingreso an onactivitresult" + requestCode  );
+        if (intentResult != null){
+            Log.d("lifeCycle", "intentRult not null"  );
+            if(intentResult.getContents() == null){
+                et_barCode.setText("No codigo");
+                Log.d("lifeCycle", "no funciona"  );
+            }else{
+          et_barCode.setText(intentResult.getContents().toString());
 
-
-        //    imagePath = selectPhoto.toString();
-
-//            TextView tv_message = findViewById(R.id.et_description);
-//            tv_message.setText(imagePath);
-
+                Log.d("lifeCycle", "funciona barcode: "+ intentResult.getContents()  );
+            }
         }
 
     }
@@ -199,6 +221,13 @@ public class ProductFormActivity extends AppCompatActivity {
 
 
         imagePath = file.toString();
+    }
+
+    public void scanBarcodeButton(View view){
+        Log.d("lifeCycle", "ingreso al boton"  );
+        IntentIntegrator intentIntegrator = new IntentIntegrator(this);
+        intentIntegrator.initiateScan();
+
     }
 }
 
