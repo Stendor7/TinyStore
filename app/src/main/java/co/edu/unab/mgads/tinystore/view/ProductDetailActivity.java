@@ -100,7 +100,7 @@ public class ProductDetailActivity extends AppCompatActivity  {
         }
     }
 
-    public void getProduct(){
-        myProduct = new Product("PC", 1500.00, "https://www.publicdomainpictures.net/pictures/90000/nahled/camera-icon.jpg" , "product Description");
-    }
+//    public void getProduct(){
+//        myProduct = new Product("PC", 1500.00, "https://www.publicdomainpictures.net/pictures/90000/nahled/camera-icon.jpg" , "product Description");
+//    }
 }

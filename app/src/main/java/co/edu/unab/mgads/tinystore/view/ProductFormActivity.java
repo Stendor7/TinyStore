@@ -50,7 +50,6 @@ public class ProductFormActivity extends AppCompatActivity {
 
     FloatingActionButton btn_load, btn_take;
     EditText et_barCode;
-    TextView textView;
     String imagePath;
     Boolean selectedGallery = true;
 
@@ -76,7 +75,6 @@ public class ProductFormActivity extends AppCompatActivity {
         btn_load = findViewById(R.id.bt_gallery);
         btn_take = findViewById(R.id.bt_camera);
         et_barCode = findViewById(R.id.et_bar_code);
-        textView = findViewById(R.id.tv_barcode);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA} , PackageManager.PERMISSION_GRANTED);
 
@@ -110,6 +108,7 @@ public class ProductFormActivity extends AppCompatActivity {
         Product product = activityProductFormBinding.getProduct();
         product.setPrice(Double.parseDouble(activityProductFormBinding.etPrice.getText().toString()));
         product.setImage(imagePath);
+        product.setBarcode(et_barCode.getText().toString());
         //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
         viewModel.insertProduct(product);
         finish();
@@ -135,16 +134,12 @@ public class ProductFormActivity extends AppCompatActivity {
 
         //scan barcode
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        Log.d("lifeCycle", "ingreso an onactivitresult" + requestCode  );
-        if (intentResult != null){
-            Log.d("lifeCycle", "intentRult not null"  );
-            if(intentResult.getContents() == null){
-                et_barCode.setText("No codigo");
-                Log.d("lifeCycle", "no funciona"  );
-            }else{
-          et_barCode.setText(intentResult.getContents().toString());
 
-                Log.d("lifeCycle", "funciona barcode: "+ intentResult.getContents()  );
+        if (intentResult != null) {
+            if (intentResult.getContents() == null) {
+                et_barCode.setText("Codigo no scaneado");
+            } else {
+                et_barCode.setText(intentResult.getContents().toString());
             }
         }
 

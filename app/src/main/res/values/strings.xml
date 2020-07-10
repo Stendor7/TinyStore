@@ -22,4 +22,5 @@
     <string name="product_price">Precio del producto</string>
     <string name="save">Guardar</string>
     <string name="product_barcode_number">Codigo producto</string>
+    <string name="bar_code">Codigo de barras</string>
 </resources>

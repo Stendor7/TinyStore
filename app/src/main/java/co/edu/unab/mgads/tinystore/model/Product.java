@@ -13,6 +13,7 @@ public class Product implements Serializable {
     String name;
     Double  price;
     String  priceString;
+    String barcode;
     @ColumnInfo(name = "description")
     String description;
     String image;
@@ -21,10 +22,11 @@ public class Product implements Serializable {
 
     }
 
-    public Product(String name, Double price, String image,String description) {
+    public Product(String name, Double price, String image, String barcode,String description) {
         this.name = name;
         this.price = price;
         this.image = image;
+        this.barcode = barcode;
         this.description = description;
     }
 
@@ -76,5 +78,13 @@ public class Product implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 }
