@@ -39,7 +39,7 @@ public class Product implements Serializable {
     }
 
     public String getPriceString(){
-        return  "$" + this.price;
+        return  "" + this.price;
 
     }
 

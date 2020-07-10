@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.unab.mgads.tinystore">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="true" />
@@ -23,21 +23,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.ProductUpdateActivity"></activity>
         <activity
-            android:name="co.edu.unab.mgads.tinystore.view.ProductFormActivity"
+            android:name=".view.ProductFormActivity"
             android:configChanges="screenLayout|orientation|screenSize" />
-
-        <activity android:name="co.edu.unab.mgads.tinystore.view.HomeActivity">
+        <activity android:name=".view.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="co.edu.unab.mgads.tinystore.view.RegisterUserActivity" />
-        <activity android:name="co.edu.unab.mgads.tinystore.view.UserInfoActivity" />
-        <activity android:name="co.edu.unab.mgads.tinystore.view.ProductListActivity" />
-        <activity android:name="co.edu.unab.mgads.tinystore.view.ProductDetailActivity" />
+        <activity android:name=".view.RegisterUserActivity" />
+        <activity android:name=".view.UserInfoActivity" />
+        <activity android:name=".view.ProductListActivity" />
+        <activity android:name=".view.ProductDetailActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -46,7 +46,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

@@ -22,7 +22,7 @@
                 android:id="@+id/tv_crate_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/create_product"
+                android:text="@string/update_product"
                 android:layout_marginTop="20dp"
                 android:textSize="25dp"
                 android:textColor="@color/colorPrimary"
@@ -132,16 +132,13 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="25dp"
                 android:paddingEnd="25dp"
-                android:text="@string/save"
+                android:text="@string/update"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/btn_round_background"
                 android:textColor="@color/colorTextPrimary"
                 android:layout_below="@id/et_description"
                 android:layout_centerHorizontal="true"
-                android:onClick="insertNewProduct" />
-
-
-
+                android:onClick="updateProduct" />
 
         </RelativeLayout>
     </ScrollView>

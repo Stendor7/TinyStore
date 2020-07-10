@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,19 +31,21 @@ public class ProductDetailActivity extends AppCompatActivity  {
     private String imageUrl;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-      //  setContentView(R.layout.activity_product_detail);
+        //  setContentView(R.layout.activity_product_detail);
         mainBinding = DataBindingUtil.setContentView(ProductDetailActivity.this, R.layout.activity_product_detail);
-        int keyMyProduct =  getIntent().getIntExtra("product", 0);
+        int keyMyProduct = getIntent().getIntExtra("product", 0);
         productDetailViewModel = new ViewModelProvider(ProductDetailActivity.this).get(ProductDetailViewModel.class);
 
         productDetailViewModel.getProductData(keyMyProduct).observe(ProductDetailActivity.this, new Observer<Product>() {
             @Override
             public void onChanged(Product product) {
-                if(product!=null){
+                if (product != null) {
                     myProduct = product;
                     mainBinding.setTitle(getString(R.string.detalle_del_producto, product.getName()));
                     mainBinding.setProduct(product);
@@ -55,23 +58,20 @@ public class ProductDetailActivity extends AppCompatActivity  {
 //                            .diskCacheStrategy(DiskCacheStrategy.NONE)
                             .into(imageView);
 
-                    Log.d("imagen", "url: "+ imageUrl);
+                    Log.d("imagen", "url: " + imageUrl);
                 }
-                }
+            }
 
         });
 
 
-       //setTitle(getString(R.string.detalle_del_producto, myProduct.getName()));
+        //setTitle(getString(R.string.detalle_del_producto, myProduct.getName()));
 
-      //  mainBinding.tvTitle.setText(getString(R.string.detalle_del_producto, myProduct.getName()));
+        //  mainBinding.tvTitle.setText(getString(R.string.detalle_del_producto, myProduct.getName()));
 
         clickHandlers = new ClickHandlers(ProductDetailActivity.this);
         mainBinding.setClickHandlers(clickHandlers);
         mainBinding.setProduct(myProduct);
-
-
-
 
     }
 
@@ -85,7 +85,16 @@ public class ProductDetailActivity extends AppCompatActivity  {
         }
 
         public void editClickButton(View v){
-            Toast.makeText(ProductDetailActivity.this, "OnClick Editar", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(ProductDetailActivity.this, "OnClick Editar", Toast.LENGTH_SHORT).show();
+            Intent intent  = new Intent(ProductDetailActivity.this, ProductUpdateActivity.class);
+            intent.putExtra("product_key", myProduct.getKey());
+            intent.putExtra("product_name", myProduct.getName());
+            intent.putExtra("product_price", myProduct.getPriceString());
+            intent.putExtra("product_barcode", myProduct.getBarcode());
+            intent.putExtra("product_image", myProduct.getImage());
+            intent.putExtra("product_description", myProduct.getDescription());
+
+            startActivity(intent);
 
         }
 
@@ -98,6 +107,8 @@ public class ProductDetailActivity extends AppCompatActivity  {
             ProductDetailActivity.this.finish();
 
         }
+
+
     }
 
 //    public void getProduct(){

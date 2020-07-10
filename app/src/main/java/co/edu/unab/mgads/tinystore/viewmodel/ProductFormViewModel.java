@@ -23,4 +23,8 @@ public class ProductFormViewModel extends AndroidViewModel {
         productRepository.insert(product);
     }
 
+    public void updateProduct(Product product){
+        productRepository.update(product);
+    }
+
 }

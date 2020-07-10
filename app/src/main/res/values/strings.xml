@@ -23,4 +23,6 @@
     <string name="save">Guardar</string>
     <string name="product_barcode_number">Codigo producto</string>
     <string name="bar_code">Codigo de barras</string>
+    <string name="update">Actualizar</string>
+    <string name="update_product">Actualizar Producto</string>
 </resources>

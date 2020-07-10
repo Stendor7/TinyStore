@@ -1,53 +1,47 @@
 package co.edu.unab.mgads.tinystore.view;
 
-        import androidx.annotation.Nullable;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.core.app.ActivityCompat;
-        import androidx.core.content.FileProvider;
-        import androidx.databinding.DataBindingUtil;
-        import androidx.lifecycle.ViewModelProvider;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
-        import android.Manifest;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.graphics.Bitmap;
-        import android.graphics.drawable.BitmapDrawable;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.os.Environment;
-        import android.provider.MediaStore;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.ImageView;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-        import com.bumptech.glide.Glide;
-        import com.google.android.material.floatingactionbutton.FloatingActionButton;
-        import com.google.zxing.integration.android.IntentIntegrator;
-        import com.google.zxing.integration.android.IntentResult;
+import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-        import java.io.BufferedInputStream;
-        import java.io.BufferedOutputStream;
-        import java.io.File;
-        import java.io.FileInputStream;
-        import java.io.FileNotFoundException;
-        import java.io.FileOutputStream;
-        import java.io.IOException;
-        import java.io.OutputStream;
-        import java.nio.channels.FileChannel;
-        import java.text.SimpleDateFormat;
-        import java.util.Date;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-        import co.edu.unab.mgads.tinystore.R;
-        import co.edu.unab.mgads.tinystore.databinding.ActivityProductFormBinding;
-        import co.edu.unab.mgads.tinystore.model.Product;
-        import co.edu.unab.mgads.tinystore.viewmodel.ProductFormViewModel;
+import co.edu.unab.mgads.tinystore.R;
+import co.edu.unab.mgads.tinystore.databinding.ActivityProductFormBinding;
+import co.edu.unab.mgads.tinystore.databinding.ActivityProductUpdateBinding;
+import co.edu.unab.mgads.tinystore.model.Product;
+import co.edu.unab.mgads.tinystore.viewmodel.ProductFormViewModel;
 
-public class ProductFormActivity extends AppCompatActivity {
-
+public class ProductUpdateActivity extends AppCompatActivity {
     FloatingActionButton btn_load, btn_take;
     EditText et_barCode, et_name, et_price, et_description;
     int product_key;
@@ -59,20 +53,19 @@ public class ProductFormActivity extends AppCompatActivity {
     Product myProduct;
 
     // String currentPhotoPath;
-    ActivityProductFormBinding activityProductFormBinding;
+    ActivityProductUpdateBinding activityBinding;
     ProductFormViewModel viewModel;
 
     OutputStream outputStream;
 
     static final int REQUEST_TAKE_PHOTO = 1;
     static final int SELECT_A_PHOTO = 2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        activityProductFormBinding = DataBindingUtil.setContentView(ProductFormActivity.this, R.layout.activity_product_form);
-        //button set
+        activityBinding = DataBindingUtil.setContentView(ProductUpdateActivity.this, R.layout.activity_product_update);
+
         btn_load = findViewById(R.id.bt_gallery);
         btn_take = findViewById(R.id.bt_camera);
 
@@ -104,14 +97,9 @@ public class ProductFormActivity extends AppCompatActivity {
             myProduct.setDescription(p_description);
             Glide.with(this).load(imagePath).into(iv_photo);
 
-            activityProductFormBinding.setProduct(myProduct);
-        }else  {
-            productUpdate =false;
-            //new product
-            viewModel = new ViewModelProvider(ProductFormActivity.this).get(ProductFormViewModel.class);
-            activityProductFormBinding.setProduct(new Product());
+            activityBinding.setProduct(myProduct);
+            viewModel = new ViewModelProvider(ProductUpdateActivity.this).get(ProductFormViewModel.class);
         }
-
 
 
         //camera
@@ -137,21 +125,7 @@ public class ProductFormActivity extends AppCompatActivity {
         });
     }
 
-    public void insertNewProduct(View v) {
-        Log.d("test", "ingreso a insert new");
-        if (productUpdate = false){
-            Log.d("test", "ingreso a new");
-            if (selectedGallery = true){
-                createImageFromGallery();
-            }
-            Product product = activityProductFormBinding.getProduct();
-            product.setPrice(Double.parseDouble(activityProductFormBinding.etPrice.getText().toString()));
-            product.setImage(imagePath);
-            product.setBarcode(et_barCode.getText().toString());
-            //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
-            Log.d("prueba", "nombre: " + product.getName());
-            viewModel.insertProduct(product);
-        }else{
+    public void updateProduct(View v) {
 
             if (selectedGallery = true){
                 createImageFromGallery();
@@ -170,7 +144,6 @@ public class ProductFormActivity extends AppCompatActivity {
             product.setBarcode(et_barCode.getText().toString());
             //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
             viewModel.updateProduct(product);
-        }
 
         finish();
     }
@@ -180,8 +153,8 @@ public class ProductFormActivity extends AppCompatActivity {
         if (selectedGallery = true){
             createImageFromGallery();
         }
-        Product product = activityProductFormBinding.getProduct();
-        product.setPrice(Double.parseDouble(activityProductFormBinding.etPrice.getText().toString()));
+        Product product = activityBinding.getProduct();
+        product.setPrice(Double.parseDouble(activityBinding.etPrice.getText().toString()));
         product.setImage(imagePath);
         product.setBarcode(et_barCode.getText().toString());
         //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
@@ -299,7 +272,3 @@ public class ProductFormActivity extends AppCompatActivity {
 
     }
 }
-
-
-
-
