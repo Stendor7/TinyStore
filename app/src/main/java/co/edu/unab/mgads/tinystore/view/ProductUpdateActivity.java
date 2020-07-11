@@ -137,12 +137,8 @@ public class ProductUpdateActivity extends AppCompatActivity {
             product.setImage(imagePath);
             product.setBarcode(et_barCode.getText().toString().trim() );
             product.setDescription(et_description.getText().toString().trim() );
-
-            Log.d("test", "ingreso a update nombre: " + product.getName() + " key: " + product.getKey() + " price: " + product.getPrice().toString() + " price 2: " + et_price.getText().toString().trim() );
-
-
             product.setBarcode(et_barCode.getText().toString());
-            //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
+
             viewModel.updateProduct(product);
 
         finish();

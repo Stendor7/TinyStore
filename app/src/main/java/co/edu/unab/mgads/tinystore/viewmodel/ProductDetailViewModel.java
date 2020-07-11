@@ -26,6 +26,11 @@ public class ProductDetailViewModel extends AndroidViewModel {
         return productRepository.getByKey(key);
     }
 
+    public Product getProductDataScanned(String scanned) {
+//        setProductData(key);
+        return productRepository.getByScanned(scanned);
+    }
+
 //    public void setProductData(int key) {
 //       Product temp = productRepository.getByKey(key);
 //       productData.setValue(temp);

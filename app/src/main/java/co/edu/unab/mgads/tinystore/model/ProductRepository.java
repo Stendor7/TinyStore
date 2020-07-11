@@ -1,6 +1,7 @@
 package co.edu.unab.mgads.tinystore.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -35,4 +36,9 @@ public class ProductRepository  {
    public LiveData<Product> getByKey(int key){
         return productDAO.getByKey(key);
    }
+
+    public Product getByScanned(String barcode){
+        Log.d("test", "en repository code: " + barcode);
+        return productDAO.getByScanned(barcode);
+    }
 }

@@ -3,7 +3,7 @@
     <string name="eliminar">Eliminar</string>
     <string name="editar">Editar</string>
     <string name="ingresar_nombre_producto">Ingresar nombre producto</string>
-    <string name="detalle_del_producto">Detalle del Producto: %s</string>
+    <string name="detalle_del_producto">Detalle del Producto: </string>
     <string name="nuevo_producto">Nuevo Producto</string>
     <string name="label_nombre_producto">Nombre Producto</string>
     <string name="tv_label_price">Precio</string>
@@ -25,4 +25,6 @@
     <string name="bar_code">Codigo de barras</string>
     <string name="update">Actualizar</string>
     <string name="update_product">Actualizar Producto</string>
+    <string name="purchase_products">Registradora</string>
+    <string name="add">Agregar</string>
 </resources>

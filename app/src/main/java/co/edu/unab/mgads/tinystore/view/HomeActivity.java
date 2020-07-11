@@ -46,5 +46,10 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(context, RegisterUserActivity.class);
             startActivity(intent);
         }
+
+        public void purchaseClickButton(View v){
+            Intent intent = new Intent(context, ScanProductActivity.class);
+            startActivity(intent);
+        }
     }
 }

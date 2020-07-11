@@ -1,5 +1,7 @@
 package co.edu.unab.mgads.tinystore.model;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -16,6 +18,10 @@ public interface ProductDAO {
 
     @Query("SELECT * FROM products WHERE `Key`=:key")
     LiveData<Product> getByKey(int key);
+
+    @Query(("SELECT * FROM products WHERE barcode =:barcode"))
+    Product getByScanned(String barcode);
+
 
     @Insert
     void insert(Product product);

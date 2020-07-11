@@ -85,34 +85,11 @@ public class ProductFormActivity extends AppCompatActivity {
         ImageView iv_photo = findViewById(R.id.iv_image);
         //  get values
         Bundle data = getIntent().getExtras();
-        if(data!=null){
-            productUpdate = true;
 
-            product_key = data.getInt("product_key");
-            p_name = data.getString("product_name");
-            p_price =Double.valueOf(data.getString("product_price"));
-            p_barcode =data.getString("product_barcode");
-            imagePath = data.getString("product_image");
-            p_description = data.getString("product_description");
-
-            myProduct = new Product();
-
-            myProduct.setKey(product_key);
-            myProduct.setName(p_name);
-            myProduct.setPrice(p_price);
-            myProduct.setBarcode(p_barcode);
-            myProduct.setDescription(p_description);
-            Glide.with(this).load(imagePath).into(iv_photo);
-
-            activityProductFormBinding.setProduct(myProduct);
-        }else  {
             productUpdate =false;
             //new product
             viewModel = new ViewModelProvider(ProductFormActivity.this).get(ProductFormViewModel.class);
             activityProductFormBinding.setProduct(new Product());
-        }
-
-
 
         //camera
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA} , PackageManager.PERMISSION_GRANTED);
@@ -139,45 +116,9 @@ public class ProductFormActivity extends AppCompatActivity {
 
     public void insertNewProduct(View v) {
         Log.d("test", "ingreso a insert new");
-        if (productUpdate = false){
-            Log.d("test", "ingreso a new");
-            if (selectedGallery = true){
-                createImageFromGallery();
-            }
-            Product product = activityProductFormBinding.getProduct();
-            product.setPrice(Double.parseDouble(activityProductFormBinding.etPrice.getText().toString()));
-            product.setImage(imagePath);
-            product.setBarcode(et_barCode.getText().toString());
-            //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
-            Log.d("prueba", "nombre: " + product.getName());
-            viewModel.insertProduct(product);
-        }else{
 
-            if (selectedGallery = true){
-                createImageFromGallery();
-            }
-            Product product = new Product();
-            product.setKey(product_key);
-            product.setName(et_name.getText().toString().trim() );
-            product.setPrice( Double.valueOf(et_price.getText().toString().trim()) );
-            product.setImage(imagePath);
-            product.setBarcode(et_barCode.getText().toString().trim() );
-            product.setDescription(et_description.getText().toString().trim() );
-
-            Log.d("test", "ingreso a update nombre: " + product.getName() + " key: " + product.getKey() + " price: " + product.getPrice().toString() + " price 2: " + et_price.getText().toString().trim() );
-
-
-            product.setBarcode(et_barCode.getText().toString());
-            //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
-            viewModel.updateProduct(product);
-        }
-
-        finish();
-    }
-
-    public void updateProduct() {
-
-        if (selectedGallery = true){
+        Log.d("test", "ingreso a new");
+        if (selectedGallery = true) {
             createImageFromGallery();
         }
         Product product = activityProductFormBinding.getProduct();
@@ -185,8 +126,14 @@ public class ProductFormActivity extends AppCompatActivity {
         product.setImage(imagePath);
         product.setBarcode(et_barCode.getText().toString());
         //Toast.makeText(this, "foto: " + product.getImage().toString(), Toast.LENGTH_SHORT).show();
-        viewModel.updateProduct(product);
+        Log.d("prueba", "nombre: " + product.getName());
+        viewModel.insertProduct(product);
+
+
+        finish();
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
