@@ -53,7 +53,6 @@ public class ProductFormActivity extends AppCompatActivity {
     int product_key;
     String imagePath ="", p_name="",  p_description="", p_barcode="";
     Double p_price =0.0;
-    String imagePath_update="", p_name_update="", p_price_update="", p_description_update="", p_barcode_update="";
     Boolean selectedGallery = true, productUpdate = false;
 
     Product myProduct;
@@ -86,7 +85,7 @@ public class ProductFormActivity extends AppCompatActivity {
         //  get values
         Bundle data = getIntent().getExtras();
 
-            productUpdate =false;
+
             //new product
             viewModel = new ViewModelProvider(ProductFormActivity.this).get(ProductFormViewModel.class);
             activityProductFormBinding.setProduct(new Product());

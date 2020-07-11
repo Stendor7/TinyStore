@@ -23,8 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.ScanProductActivity"
-            android:configChanges="screenLayout|orientation|screenSize"></activity>
+        <activity android:name=".view.NewPurchaseActivity"></activity>
+        <activity
+            android:name=".view.ScanProductActivity"
+            android:configChanges="screenLayout|orientation|screenSize" />
         <activity android:name=".view.ProductUpdateActivity" />
         <activity
             android:name=".view.ProductFormActivity"

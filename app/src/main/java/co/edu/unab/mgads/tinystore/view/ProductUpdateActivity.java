@@ -47,7 +47,7 @@ public class ProductUpdateActivity extends AppCompatActivity {
     int product_key;
     String imagePath ="", p_name="",  p_description="", p_barcode="";
     Double p_price =0.0;
-    String imagePath_update="", p_name_update="", p_price_update="", p_description_update="", p_barcode_update="";
+
     Boolean selectedGallery = true, productUpdate = false;
 
     Product myProduct;
@@ -79,7 +79,6 @@ public class ProductUpdateActivity extends AppCompatActivity {
         //  get values
         Bundle data = getIntent().getExtras();
         if(data!=null){
-            productUpdate = true;
 
             product_key = data.getInt("product_key");
             p_name = data.getString("product_name");

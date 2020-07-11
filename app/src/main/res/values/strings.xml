@@ -27,4 +27,6 @@
     <string name="update_product">Actualizar Producto</string>
     <string name="purchase_products">Registradora</string>
     <string name="add">Agregar</string>
+    <string name="user_identification">Documento usuario</string>
+    <string name="start_purchase">Iniciar Compra</string>
 </resources>

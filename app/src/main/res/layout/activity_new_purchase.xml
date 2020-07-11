@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="co.edu.unab.mgads.tinystore.model.User" />
+
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="co.edu.unab.mgads.tinystore.view.ProductFormActivity">
+
+
+
+            <TextView
+                android:id="@+id/tv_tile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_purchase"
+                android:layout_marginTop="100dp"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_alignParentTop="true"
+                android:textAlignment="center"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/et_identification"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/user_identification"
+                android:inputType="number"
+                android:layout_below="@id/tv_tile"
+                android:layout_centerHorizontal="true"
+            android:text= "@={user.document}"
+                />
+
+
+            <Button
+                android:id="@+id/bt_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="@string/start_purchase"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_round_background"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_below="@id/et_identification"
+                android:layout_centerHorizontal="true"
+                android:onClick="newPurchase" />
+        </RelativeLayout>
+    </ScrollView>
+
+</layout>
