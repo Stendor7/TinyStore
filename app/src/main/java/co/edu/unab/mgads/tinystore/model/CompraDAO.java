@@ -10,10 +10,12 @@ import java.util.List;
 @Dao
 public interface CompraDAO {
 
+    @Query("select *from compras")
+    LiveData<List<Compra>> getAll();
+
     @Insert
     void insert(Compra compra);
 
-    @Query("select *from compras")
-    LiveData<List<Compra>> getALLbyKey();
+
 
 }

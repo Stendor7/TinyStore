@@ -13,6 +13,8 @@ public class Compra implements Serializable {
     int product_key;
     String buyer_identification;
     String date_purchased;
+    String product_name;
+    String url_photo;
     Double  price;
     int  quantity;
     Double total;
@@ -22,10 +24,12 @@ public class Compra implements Serializable {
 
     }
 
-    public Compra( int product_key, String buyer_identification, String date_purchased, Double price, int quantity, Double total) {
+    public Compra(int product_key, String buyer_identification, String date_purchased, String product_name, String url_photo, Double price, int quantity, Double total) {
         this.product_key = product_key;
         this.buyer_identification = buyer_identification;
         this.date_purchased = date_purchased;
+        this.product_name = product_name;
+        this.url_photo = url_photo;
         this.price = price;
         this.quantity = quantity;
         this.total = total;
@@ -85,5 +89,21 @@ public class Compra implements Serializable {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getUrl_photo() {
+        return url_photo;
+    }
+
+    public void setUrl_photo(String url_photo) {
+        this.url_photo = url_photo;
     }
 }

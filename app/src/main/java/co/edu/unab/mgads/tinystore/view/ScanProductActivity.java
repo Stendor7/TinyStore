@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -24,8 +26,10 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import co.edu.unab.mgads.tinystore.R;
@@ -39,19 +43,20 @@ import co.edu.unab.mgads.tinystore.viewmodel.ProductFormViewModel;
 
 public class ScanProductActivity extends AppCompatActivity {
 
-
-
     private Product myProduct;
     private Compra myCompra;
     private ProductDetailViewModel productDetailViewModel;
-    private String new_purchase_date, identification ;
 
+    private String new_purchase_date, identification ;
+    private CompraAdapter adapter;
+
+    ProductFormViewModel viewModel;
     CompraViewModel compraViewModel;
 
     String curentDate;
 
     ActivityScanProductBinding activityBinding;
-    ProductFormViewModel viewModel;
+
 
      TextView tv_name, et_barcode, tv_price;
      EditText et_quantity;
@@ -60,6 +65,8 @@ public class ScanProductActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         activityBinding = DataBindingUtil.setContentView(ScanProductActivity.this, R.layout.activity_scan_product);
 
         et_barcode = findViewById(R.id.et_bar_code);
@@ -67,6 +74,11 @@ public class ScanProductActivity extends AppCompatActivity {
         tv_price = findViewById(R.id.tv_price);
         et_quantity = findViewById(R.id.et_quantity);
         iv_image = findViewById(R.id.iv_image);
+
+        Glide.with(ScanProductActivity.this)
+                .load(R.drawable.ic_image)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(iv_image);
 
         myCompra = new Compra();
 
@@ -81,9 +93,42 @@ public class ScanProductActivity extends AppCompatActivity {
         //call from scanned
         productDetailViewModel = new ViewModelProvider(ScanProductActivity.this).get(ProductDetailViewModel.class);
 
+        compraViewModel = new ViewModelProvider(ScanProductActivity.this).get(CompraViewModel.class);
+
         SimpleDateFormat dateTime = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
         curentDate =  dateTime.format(new Date());
 
+
+        //recyclerview
+        adapter = new CompraAdapter(new ArrayList<Compra>());
+
+        RecyclerView recyclerView = activityBinding.rvCompra;
+        recyclerView.setLayoutManager(new LinearLayoutManager(ScanProductActivity.this));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+
+//        adapter.setOnItemClickListener(new CompraAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(Product product, int position) {
+//                Toast.makeText(ScanProductActivity.this, "Seleccionado: "+ product.getName(), Toast.LENGTH_SHORT).show();
+//                //viewModel.deleteProduct(product);
+//                Intent intent  = new Intent(ScanProductActivity.this, ProductDetailActivity.class);
+//                intent.putExtra("product", compra.getKey());
+//                startActivity(intent);
+//            }
+//        });
+
+
+
+        compraViewModel.getCompraList().observe(ScanProductActivity.this, new Observer<List<Compra>>() {
+            @Override
+            public void onChanged(List<Compra> compras) {
+                if(compras.size()==0){
+                    //viewModel.setFakeData();
+                }
+                adapter.setCompraList(compras);
+            }
+        });
 
     }
 
@@ -113,7 +158,7 @@ public class ScanProductActivity extends AppCompatActivity {
                 myProduct = productDetailViewModel.getProductDataScanned(scannedMyProduct);
 
                 activityBinding.setProduct(myProduct);
-                viewModel = new ViewModelProvider(ScanProductActivity.this).get(ProductFormViewModel.class);
+             viewModel = new ViewModelProvider(ScanProductActivity.this).get(ProductFormViewModel.class);
 
                 Glide.with(ScanProductActivity.this)
                         .load(myProduct.getImage())
@@ -137,6 +182,8 @@ public class ScanProductActivity extends AppCompatActivity {
         myCompra.setProduct_key(myProduct.getKey());
         myCompra.setBuyer_identification(identification);
         myCompra.setDate_purchased(new_purchase_date);
+        myCompra.setProduct_name(myProduct.getName());
+        myCompra.setUrl_photo(myProduct.getImage());
         myCompra.setPrice(myProduct.getPrice());
         myCompra.setQuantity(quantity);
         myCompra.setTotal(total);

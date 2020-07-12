@@ -15,9 +15,9 @@ public class CompraRepository {
         compraDAO = dataBase.compraDAO();
     }
 
-//    public LiveData<List<Product>> getAll(){
-//        return compraDAO.getALL();
-//    }
+    public LiveData<List<Compra>> getAll(){
+        return compraDAO.getAll();
+    }
 
     public void insert(Compra compra){
         compraDAO.insert(compra);

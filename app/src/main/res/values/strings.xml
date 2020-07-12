@@ -29,4 +29,6 @@
     <string name="add">Agregar</string>
     <string name="user_identification">Documento usuario</string>
     <string name="start_purchase">Iniciar Compra</string>
+    <string name="scan_product">Scan Producto</string>
+    <string name="quantity">Cantidad: </string>
 </resources>

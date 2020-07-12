@@ -13,14 +13,6 @@
     android:layout_height="match_parent"
     tools:context="co.edu.unab.mgads.tinystore.view.ProductListActivity">
 
-<!--    <Button-->
-<!--        android:id="@+id/btn_new"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/nuevo_producto"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:onClick="@{clickHandlers:: addClick }"/>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_products"
         android:layout_width="match_parent"

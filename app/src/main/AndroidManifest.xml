@@ -26,7 +26,8 @@
         <activity android:name=".view.NewPurchaseActivity"></activity>
         <activity
             android:name=".view.ScanProductActivity"
-            android:configChanges="screenLayout|orientation|screenSize" />
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:screenOrientation="portrait"/>
         <activity android:name=".view.ProductUpdateActivity" />
         <activity
             android:name=".view.ProductFormActivity"
